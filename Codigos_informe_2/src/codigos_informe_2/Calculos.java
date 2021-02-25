@@ -39,9 +39,9 @@ public class Calculos {
         
     }
     
-        public void Media(float suma, float media){
+    
+    public  void Media(){
             
-            suma=0;
             for(int i=0;i<tamaño;i++){
             
                 suma=suma+arreglo[i];
@@ -51,4 +51,46 @@ public class Calculos {
                  System.out.println("La media aritmetica es: "+media);
                                
     }
-}
+        
+    public void Varianza(){
+       
+        for(int i=0;i<tamaño;i++){
+            
+                suma=suma+arreglo[i];
+                            }
+        media=suma/tamaño;
+         System.out.println(suma);
+        System.out.println(media);
+        float rango=0;
+        
+        for(int i=0;i<tamaño;i++){
+            
+            rango=(float) Math.pow((arreglo[i]-media),2);
+            varianza= (varianza+rango);
+        }
+            varianza=varianza/(tamaño-1);           
+            System.out.println(varianza);
+        }
+      
+     public void Desviacion_e (){
+              for(int i=0;i<tamaño;i++){
+            
+                suma=suma+arreglo[i];
+                            }
+        media=suma/tamaño;
+         
+        float rango=0;
+        
+        for(int i=0;i<tamaño;i++){
+            
+            rango=(float) Math.pow((arreglo[i]-media),2);
+            varianza= (varianza+rango);
+        }
+            varianza=varianza/(tamaño-1);  
+            desviacion_e=(float) Math.sqrt(varianza);
+            System.out.println(desviacion_e);
+        }
+      
+    }
+
+        
