@@ -10,25 +10,23 @@ public class Codigos_informe_2 {
 
     public static void main(String[] args) {
         Scanner entra= new Scanner(System.in);
-        
-        System.out.println("Ingrese el tamaño del arreglo");
-        int tamaño;
-        tamaño=entra.nextInt();
-                
-        int []arreglo=new int[tamaño];
-        int lugar=0;
-        
-        for (int i=0; i<tamaño; i++){
-            
-                double numero=Math.random()*100;
-            arreglo[lugar]=(int) numero;
-            lugar++;
-           
-        }
-        
-            System.out.println(Arrays.toString(arreglo));
-          
+        int opcion, tamaño=0, lugar=0, arreglo[]={0};
+        float media=0, suma=0;
+                        
+        Calculos c1= new Calculos();
+        c1.Llenar( lugar);
+         System.out.println("Ingrese la opcion que desea realizar con el arreglo: \n1. Varianza \n2. Media \n3. Desviación estandar");
+         opcion=entra.nextInt();
+         switch (opcion){
+             case 1:
+                 
+             case 2:
+                 c1.Media(suma, media);
+                 
+                 break;
+         }
+         
     }
-    }
+    } 
     
 
