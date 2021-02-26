@@ -12,44 +12,128 @@ public class Calculos {
     protected int tamaño;
     protected int [] arreglo;
     protected String cadena;
+    protected char caracter;
+    protected double [] arreglo2;
     
     
     
 Scanner entra= new Scanner(System.in);
+
+    
+    public void MetodoSeleccion(){
+        
+        int longitud;
+        longitud=arreglo2.length;
+        double menor,tem;
+        int pos;
+        for(int i=0; i<longitud-1;i++){
+           
+            menor=arreglo2[i];
+            pos=i;
+            for(int j=i+1;j<longitud;j++){
+                if(arreglo2[j]<menor){
+                  
+                 menor=arreglo2[j];
+                 pos=j;
+               
+                } 
+                
+            }
+            if(pos!=i){
+                tem=arreglo2[i];
+                arreglo2[i]=arreglo2[pos];
+                arreglo2[pos]=tem;
+            }
+            
+        }
+        System.out.println(Arrays.toString(arreglo2));
+    }
+
+
+    public void MetodoBurbuja(){
+        
+        int longitud;
+        longitud=arreglo2.length;
+        double tem;
+        
+     for(int i=0; i<longitud-1;i++){
+         for(int j=0;j<longitud-1;j++){
+             if(arreglo2[j]<arreglo2[j+1]){
+                 tem=arreglo2[j];
+                 arreglo2[j]=arreglo2[j+1];
+                 arreglo2[j+1]=tem;
+             }
+         }
+     }   
+     
+        System.out.println("Los numeros ordenados son: ");
+        System.out.println(Arrays.toString(arreglo2));
+         
+    }
   
+    public void Llenar_numeros2(){
+        Scanner entra= new Scanner (System.in);
+        System.out.println("Ingrese el tamaño del arreglo");
+                       
+        tamaño=entra.nextInt();
+        int lugar=0;
+                
+        arreglo2 = new double[tamaño];
+        for (int i=0; i<tamaño; i++){
+            
+                double numero=Math.random()*100;
+            arreglo2[lugar]=(int) numero;
+            lugar++;
+            }
+        System.out.println("El arreglo es: ");
+        System.out.println(Arrays.toString(arreglo2));
+        
+    }
+
     public void Llenar_letras(){
         
         
         System.out.println("Ingrese su cadena: ");
         cadena=entra.nextLine();
-        int longitud=cadena.length();
         char caracteres[]= cadena.toCharArray();
         System.out.println(caracteres);
+        
+        
+        
+        
+        
     }
     
     public void Repeticiones(){
         
         int contador=0;
-        char caracter=0;
-        while(cadena.length()!=0){
-            int contadorAux=0;
-            for (int j = 0; j < cadena.length(); j++) { // recorremos la cadena para contar los caracteres del indice cero
+        
+        
+        
+        for (int i=0; i<cadena.length() ;i++) {
+     int contadorAux = 0;
+     for (int j = 0; j < cadena.length(); j++) { 
          if (cadena.charAt(0) == cadena.charAt(j)) {
              contadorAux++;
-         }
-     }
-            if (contadorAux > contador) { // si el contador del nuevo caracter es mayor al que ya estaba guardado, lo cambiamos
+              if (contadorAux > contador) {
          contador = contadorAux;
          caracter = cadena.charAt(0);
      }
-             
-               
+         }
+     }
+        i++;
  }
-    System.out.println(caracter + ": " + contador);
-    cadena = cadena.replaceAll(cadena.charAt(0) + "", "");
-             cadena = cadena.replace('a',caracter).replace('e',caracter).replace('i',caracter).replace('o',caracter).replace('u',caracter);
-             System.out.println(cadena);
-        }
+ System.out.println(caracter + ": " + contador);
+ 
+
+             
+    }
+    
+    public void Repetir(){
+        
+        cadena = cadena.replace('a',caracter).replace('e',caracter).replace('i',caracter).replace('o',caracter).replace('u',caracter);
+             System.out.println("La nueva cadena es: " +cadena);
+    }
     
     public void Llenar_numeros (){
         Scanner entra= new Scanner (System.in);

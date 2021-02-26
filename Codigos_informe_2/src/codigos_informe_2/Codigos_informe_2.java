@@ -10,6 +10,8 @@ public class Codigos_informe_2 {
 
     public static void main(String[] args) {
         Scanner entra= new Scanner(System.in);
+        long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
+        TInicio = System.currentTimeMillis();
                 
         String opcion2;
         int opcion, opcion3;
@@ -48,10 +50,31 @@ public class Codigos_informe_2 {
             case 2:
                 c1.Llenar_letras();
                 c1.Repeticiones();
+                break;
+                
+            case 3:
+                c1.Llenar_numeros2();
+                System.out.println("Seleccione el metodo de ordenamiento");
+                System.out.println("1. Burbuja \n2. Seleccion  \n3.  \n4.  ");
+                int opcion4;
+                opcion4=entra.nextInt();
+                switch(opcion4){
+                    case 1:
+                        c1.MetodoBurbuja();
+                    break;
+                    
+                    case 2:
+                        c1.MetodoSeleccion();
+                    
+                }
          }
     
-    
+     TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo/1000;
+    System.out.println("Tiempo de ejecución en segundos: " + tiempo);
     }
+    
     } 
     
 
