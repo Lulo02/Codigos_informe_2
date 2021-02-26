@@ -1,6 +1,7 @@
 
 package codigos_informe_2;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ import java.util.Scanner;
 public class Codigos_informe_2 {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Scanner entra= new Scanner(System.in);
         long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
         TInicio = System.currentTimeMillis();
@@ -41,6 +42,7 @@ public class Codigos_informe_2 {
                             c1.Desviacion_e();
                             break;
                             }
+                 new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
                     System.out.println("¿Desea volver a ejecutar este punto?");
                     opcion2=entra.nextLine();
                     opcion2=entra.nextLine();
@@ -51,8 +53,9 @@ public class Codigos_informe_2 {
             
             case 2:
                 do{
-                c1.Llenar_letras();
-                c1.Repeticiones();
+               
+                c1.Cadena_letras();
+                new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
                  System.out.println("¿Desea volver a ejecutar este punto?");
                     opcion7=entra.nextLine();
                     opcion7=entra.nextLine();
@@ -84,18 +87,19 @@ public class Codigos_informe_2 {
                         c1.OrdenarMergeSort();
                         break;
                 }
+                new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
                 System.out.println("¿Desea volver a ejecutar este punto?");
                 
-                    opcion5=entra.nextLine();
+                    
                     opcion5=entra.nextLine();
                     opcion5.toLowerCase();
                     }while(opcion5.equals("si"));   
                
         }
+        new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
         System.out.println("¿Desea volver a ejecutar el programa?");
                 
                     opcion6=entra.nextLine();
-                    
                     opcion6.toLowerCase(); 
                     }while(opcion6.equals("si")); 
     

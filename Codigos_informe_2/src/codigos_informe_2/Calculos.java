@@ -213,22 +213,10 @@ Scanner entra= new Scanner(System.in);
         
     }
 
-    public void Llenar_letras(){
-        
-        
+  
+    public void Cadena_letras(){
         System.out.println("Ingrese su cadena: ");
         cadena=entra.nextLine();
-        char caracteres[]= cadena.toCharArray();
-        System.out.println(caracteres);
-        
-        
-        
-        
-        
-    }
-    
-    public void Repeticiones(){
-        
         int contador=0;
         String nueva=cadena;
         while (cadena.length() != 0) {
