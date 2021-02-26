@@ -2,7 +2,6 @@
 package codigos_informe_2;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -90,7 +89,7 @@ public class Codigos_informe_2 {
                 new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
                 System.out.println("¿Desea volver a ejecutar este punto?");
                 
-                    
+                    opcion5=entra.nextLine();
                     opcion5=entra.nextLine();
                     opcion5.toLowerCase();
                     }while(opcion5.equals("si"));   
