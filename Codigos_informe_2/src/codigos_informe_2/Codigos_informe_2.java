@@ -13,11 +13,12 @@ public class Codigos_informe_2 {
         long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
         TInicio = System.currentTimeMillis();
                 
-        String opcion2, opcion5;
+        String opcion2, opcion5, opcion6, opcion7 ;
         int opcion, opcion3;
         Calculos c1= new Calculos();
                 
         System.out.println("\t Programa puntos informe 2");
+        do{
         System.out.println("Ingrese los puntos que desea realizar: ");
         System.out.println("1. Puntos 1 y 2 \n2. Puntos 3 y 4 \n3. Puntos 5 y 6");
         opcion3=entra.nextInt();
@@ -44,13 +45,19 @@ public class Codigos_informe_2 {
                     opcion2=entra.nextLine();
                     opcion2=entra.nextLine();
                     opcion2.toLowerCase();
-                    }while(opcion2.equals("si")==true);   
+                    }while(opcion2.equals("si"));
                     break;
+                   
             
             case 2:
-                
+                do{
                 c1.Llenar_letras();
                 c1.Repeticiones();
+                 System.out.println("¿Desea volver a ejecutar este punto?");
+                    opcion7=entra.nextLine();
+                    opcion7=entra.nextLine();
+                    opcion7.toLowerCase();
+                }while(opcion7.equals("si"));
                 break;
                 
             case 3:
@@ -83,15 +90,21 @@ public class Codigos_informe_2 {
                     opcion5=entra.nextLine();
                     opcion5.toLowerCase();
                     }while(opcion5.equals("si"));   
-                    
-         
+               
         }
+        System.out.println("¿Desea volver a ejecutar el programa?");
+                
+                    opcion6=entra.nextLine();
+                    
+                    opcion6.toLowerCase(); 
+                    }while(opcion6.equals("si")); 
+    
      TFin = System.currentTimeMillis();
     tiempo = TFin - TInicio;
     tiempo=tiempo/1000;
     System.out.println("Tiempo de ejecución en segundos: " + tiempo);
-    }
+    
     
     } 
-    
+}
 

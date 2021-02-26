@@ -230,34 +230,31 @@ Scanner entra= new Scanner(System.in);
     public void Repeticiones(){
         
         int contador=0;
-        
-        
-        
-        for (int i=0; i<cadena.length() ;i++) {
+        String nueva=cadena;
+        while (cadena.length() != 0) {
      int contadorAux = 0;
      for (int j = 0; j < cadena.length(); j++) { 
          if (cadena.charAt(0) == cadena.charAt(j)) {
              contadorAux++;
+         }
+     }
               if (contadorAux > contador) {
          contador = contadorAux;
          caracter = cadena.charAt(0);
      }
+              cadena = cadena.replaceAll(cadena.charAt(0) + "", "");
          }
-     }
-        i++;
- }
- System.out.println(caracter + ": " + contador);
- 
+     
+      
 
-             
-    }
-    
-    public void Repetir(){
+        System.out.println("La letra mas repetida es: "+caracter + " y se repite " + contador+" veces.");
         
-        cadena = cadena.replace('a',caracter).replace('e',caracter).replace('i',caracter).replace('o',caracter).replace('u',caracter);
-             System.out.println("La nueva cadena es: " +cadena);
-    }
-    
+        nueva = nueva.replace('a',caracter).replace('e',caracter).replace('i',caracter).replace('o',caracter).replace('u',caracter);
+        System.out.println("La cadena cambiando las volcales por  la letra mas repetida queda: ");
+        System.out.println(nueva);
+      
+}
+         
     public void Llenar_numeros (){
         Scanner entra= new Scanner (System.in);
         System.out.println("Ingrese el tamaño del arreglo");
