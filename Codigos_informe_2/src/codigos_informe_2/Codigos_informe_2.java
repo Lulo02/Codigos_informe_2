@@ -13,7 +13,7 @@ public class Codigos_informe_2 {
         long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
         TInicio = System.currentTimeMillis();
                 
-        String opcion2;
+        String opcion2, opcion5;
         int opcion, opcion3;
         Calculos c1= new Calculos();
                 
@@ -32,43 +32,60 @@ public class Codigos_informe_2 {
                  switch (opcion){
                         case 1:
                             c1.Varianza();
-                         break;
+                            break;
                         case 2:
                             c1.Media();
-                        break;
+                            break;
                         case 3:
                             c1.Desviacion_e();
-                        break;
+                            break;
                             }
-                    System.out.println("¿Desea volver a ejecutar el programa?");
+                    System.out.println("¿Desea volver a ejecutar este punto?");
                     opcion2=entra.nextLine();
                     opcion2=entra.nextLine();
                     opcion2.toLowerCase();
                     }while(opcion2.equals("si")==true);   
-                break;
+                    break;
             
             case 2:
+                
                 c1.Llenar_letras();
                 c1.Repeticiones();
                 break;
                 
             case 3:
+                do{
                 c1.Llenar_numeros2();
                 System.out.println("Seleccione el metodo de ordenamiento");
-                System.out.println("1. Burbuja \n2. Seleccion  \n3.  \n4.  ");
+                System.out.println("1. Burbuja \n2. Seleccion  \n3. Insercion  \n4. Merge Sort  ");
                 int opcion4;
                 opcion4=entra.nextInt();
                 switch(opcion4){
                     case 1:
                         c1.MetodoBurbuja();
-                    break;
+                        break;
                     
                     case 2:
                         c1.MetodoSeleccion();
-                    
+                        break;
+                        
+                    case 3:
+                        c1.MetodoInsercion();
+                        break;
+                        
+                    case 4:
+                        c1.OrdenarMergeSort();
+                        break;
                 }
-         }
-    
+                System.out.println("¿Desea volver a ejecutar este punto?");
+                
+                    opcion5=entra.nextLine();
+                    opcion5=entra.nextLine();
+                    opcion5.toLowerCase();
+                    }while(opcion5.equals("si"));   
+                    
+         
+        }
      TFin = System.currentTimeMillis();
     tiempo = TFin - TInicio;
     tiempo=tiempo/1000;

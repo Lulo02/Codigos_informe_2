@@ -19,11 +19,104 @@ public class Calculos {
     
 Scanner entra= new Scanner(System.in);
 
+    public void OrdenarMergeSort(){
+       
+        
+        int inicio=0, longitud;
+        longitud=arreglo2.length;
+        int fin=longitud-1;
+        int mitad=(inicio+fin)/2;
+        double  izq[]=Arrays.copyOfRange(arreglo2, inicio, mitad);
+        double der[]=Arrays.copyOfRange(arreglo2, mitad+1, longitud);
+       double temp[]={0};
+        
+        int i=inicio, j;
+        j = (mitad+1);
+        int  k=0;
+        
+        while(i<mitad && j<fin){
+            if(arreglo2[i]<=arreglo2[j]){
+                
+                temp[k]=arreglo2[i];
+                k=k+1;
+                i=i+1;
+                }
+            else{
+                temp[k]=arreglo2[j];
+                k=k+1;
+                i=i+1;
+            }
+            
+            while (i<mitad){
+                temp[k]=arreglo2[j];
+                k=k+1;
+                i=i+1;
+            }
+            while(j<fin){
+                temp[k]=arreglo2[j];
+                k=k+1;
+                i=i+1;
+            }
+            for(i=inicio;i<arreglo2.length;i++){
+            
+            arreglo2[i]=temp[i-1];
+        }
+        }
+        
+        
+        System.out.println(Arrays.toString(arreglo2));
+        
+    }
+   
+    
+
+    public void MetodoInsercion(){
+        
+        int longitud, pos, x;
+        double aux;
+        longitud=arreglo2.length;
+        System.out.println("Ordenar de forma asendente o desendente?");
+        System.out.println("1. Asendente \n2. Desendente");
+        x=entra.nextInt();
+        int inverso=longitud;
+                double []numeros=new double[longitud];
+        for(int i=0;i<longitud;i++){
+            pos=i;
+            aux=arreglo2[i];
+            
+            while((pos>0 && arreglo2[pos-1]> aux)){
+                arreglo2 [pos]=arreglo2[pos-1];
+                pos--;
+            }
+            arreglo2[pos]=aux;
+            longitud=arreglo2.length;
+        }
+        if(x==1){
+        
+        System.out.println("Los numeros ordenados son: ");
+        System.out.println(Arrays.toString(arreglo2));
+        }
+        else{
+            for(int i=0;i<longitud;i++){
+                
+                
+                numeros[i]= arreglo2[inverso-1];
+                inverso--;
+            }
+            System.out.println("Los numeros ordenados son: ");
+            System.out.println(Arrays.toString(numeros));
+        }
+    }
     
     public void MetodoSeleccion(){
         
-        int longitud;
+        int longitud,x;
         longitud=arreglo2.length;
+        System.out.println("Ordenar de forma asendente o desendente?");
+        System.out.println("1. Asendente \n2. Desendente");
+        x=entra.nextInt();
+        int inverso=longitud;
+                double []numeros=new double[longitud];
         double menor,tem;
         int pos;
         for(int i=0; i<longitud-1;i++){
@@ -46,16 +139,35 @@ Scanner entra= new Scanner(System.in);
             }
             
         }
+        if(x==1){
+            System.out.println("Los numeros ordenados son: ");
         System.out.println(Arrays.toString(arreglo2));
+        }
+        else{
+            for(int i=0;i<longitud;i++){
+                
+                
+                numeros[i]= arreglo2[inverso-1];
+                inverso--;
+            }
+           System.out.println("Los numeros ordenados son: ");
+            System.out.println(Arrays.toString(numeros));
+        }
     }
 
 
     public void MetodoBurbuja(){
         
-        int longitud;
+        int longitud, x;
         longitud=arreglo2.length;
         double tem;
-        
+        System.out.println("Ordenar de forma asendente o desendente?");
+        System.out.println("1. Asendente \n2. Desendente");
+        x=entra.nextInt();
+        int inverso=longitud;
+                double []numeros=new double[longitud];
+                
+                
      for(int i=0; i<longitud-1;i++){
          for(int j=0;j<longitud-1;j++){
              if(arreglo2[j]<arreglo2[j+1]){
@@ -65,10 +177,21 @@ Scanner entra= new Scanner(System.in);
              }
          }
      }   
-     
+     if(x==1){
+         for(int i=0;i<longitud;i++){
+                
+                
+                numeros[i]= arreglo2[inverso-1];
+                inverso--;
+            }
         System.out.println("Los numeros ordenados son: ");
-        System.out.println(Arrays.toString(arreglo2));
-         
+        System.out.println(Arrays.toString(numeros));
+     }
+     else{
+            
+           System.out.println("Los numeros ordenados son: ");
+            System.out.println(Arrays.toString(arreglo2));
+        }
     }
   
     public void Llenar_numeros2(){
