@@ -87,7 +87,7 @@ public class punto4 extends javax.swing.JDialog {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 210, 170));
 
-        TablaPersona.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        TablaPersona.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         TablaPersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -105,7 +105,7 @@ public class punto4 extends javax.swing.JDialog {
         TablaPersona.setRowHeight(30);
         jScrollPane1.setViewportView(TablaPersona);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 380, 160));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 380, 180));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/fondo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
