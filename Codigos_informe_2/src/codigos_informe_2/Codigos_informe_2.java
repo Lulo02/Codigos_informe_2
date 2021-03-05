@@ -2,14 +2,18 @@
 package codigos_informe_2;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Codigos_informe_2 {
+public class Codigos_informe_2 extends Calculos {
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner entra= new Scanner(System.in);
+        
+        
+        
         long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
         TInicio = System.currentTimeMillis();
                 
@@ -83,7 +87,7 @@ public class Codigos_informe_2 {
                         break;
                         
                     case 4:
-                        c1.OrdenarMergeSort();
+                        c1.printArray();
                         break;
                 }
                 new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();

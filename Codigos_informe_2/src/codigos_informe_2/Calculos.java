@@ -14,62 +14,207 @@ public class Calculos {
     protected String cadena;
     protected char caracter;
     protected double [] arreglo2;
+    protected int  []arr={3,9,6,8,5,7,4};
     
     
     
 Scanner entra= new Scanner(System.in);
 
-    public void OrdenarMergeSort(){
-       
-        
-        int inicio=0, longitud;
-        longitud=arreglo2.length;
-        int fin=longitud-1;
-        int mitad=(inicio+fin)/2;
-        double  izq[]=Arrays.copyOfRange(arreglo2, inicio, mitad);
-        double der[]=Arrays.copyOfRange(arreglo2, mitad+1, longitud);
-       double temp[]={0};
-        
-        int i=inicio, j;
-        j = (mitad+1);
-        int  k=0;
-        
-        while(i<mitad && j<fin){
-            if(arreglo2[i]<=arreglo2[j]){
-                
-                temp[k]=arreglo2[i];
-                k=k+1;
-                i=i+1;
-                }
-            else{
-                temp[k]=arreglo2[j];
-                k=k+1;
-                i=i+1;
-            }
-            
-            while (i<mitad){
-                temp[k]=arreglo2[j];
-                k=k+1;
-                i=i+1;
-            }
-            while(j<fin){
-                temp[k]=arreglo2[j];
-                k=k+1;
-                i=i+1;
-            }
-            for(i=inicio;i<arreglo2.length;i++){
-            
-            arreglo2[i]=temp[i-1];
-        }
-        }
-        
-        
-        System.out.println(Arrays.toString(arreglo2));
-        
-    }
-   
-    
 
+    void Merge( int l, int m, int r) 
+    { 
+        //Se buscan los tamaños de los dos arreglos a los cuales se va a dividir
+        int n1 = m - l + 1; 
+        int n2 = r - m; 
+        //se crean los dos sub arreglos
+        int L[] = new int [n1]; 
+        int R[] = new int [n2]; 
+  
+        //se copian los datos en los dos subarreglos correspondientes a la parte derecha y parte izquiera del arreglo principal
+        for (int i=0; i<n1; ++i) 
+            L[i] = arr[l + i]; 
+        for (int j=0; j<n2; ++j) 
+            R[j] = arr[m + 1+ j]; 
+  
+   //se combinan los dos arreglos temporales
+  
+        //inicializacion de contadores 
+        int i = 0, j = 0; 
+        //index inicial de los sub arreglos a mezclar
+        int k = l; 
+        while (i < n1 && j < n2) 
+        { 
+            if (L[i] <= R[j]) 
+            { 
+                arr[k] = L[i]; 
+                i++; 
+            } 
+            else
+            { 
+                arr[k] = R[j]; 
+                j++; 
+            } 
+            k++; 
+        } 
+        printArray();
+  
+        //se copian los elementos restantes en L
+        while (i < n1) 
+        { 
+            arr[k] = L[i]; 
+            i++; 
+            k++; 
+        } 
+        printArray();
+        //se copian los elementos restantes en R
+        while (j < n2) 
+        { 
+            arr[k] = R[j]; 
+            j++; 
+            k++; 
+        } 
+        printArray();
+    }
+    //merge and sort algorithm
+     void sort( int extremoIzquierdo, int extremoDerecho) 
+    { 
+        if (extremoIzquierdo < extremoDerecho) 
+        { 
+            // se busca el punto medio
+            int puntoMedio = (extremoIzquierdo+extremoDerecho)/2; 
+  
+            // Sort first and second halves 
+            sort( extremoIzquierdo, puntoMedio); 
+            sort(  puntoMedio+1, extremoDerecho); 
+  
+            // Merge the sorted halves 
+            Merge(  extremoIzquierdo, puntoMedio, extremoDerecho); 
+        } 
+    }
+      public void printArray() {
+         
+         
+        System.out.println(Arrays.toString(arr));
+    }
+     
+  /*  public void Ordenar(){
+        int longitud;
+        longitud=arr.length;
+        merge(0,longitud-1);
+    }
+
+    private void merge( int inicio, int fin ){
+        Ordenar();
+        if(inicio<fin){
+            int mitad=(inicio+fin)/2;
+            merge(inicio,mitad);
+            merge( mitad+1,fin);
+            unir(inicio,fin,mitad);
+        }
+    }
+
+    private void unir( int inicio, int fin, int mitad ){
+        Ordenar();
+        int i=inicio, k=inicio, j=mitad+1;
+        double aux[]= new double[tamaño];
+        while(i<=mitad && j<=fin){
+            if (arr[i]<arr[j]){
+                aux[k++]=arr[i++];
+            }
+            else{
+                aux[k++]=arr[j++];
+            }
+        }
+        while(i<=mitad){
+            aux[k++]=arr[i++];
+          }
+        while(j<=fin){
+            aux[k++]=arr[j++];
+          }
+        for(i=inicio; i<k;i++){
+            arr[i]=aux[i];
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+    public void printArray() {
+         
+         Ordenar();
+        System.out.println(Arrays.toString(arr));
+    }
+*/
+
+  /* public void sort( int left, int right) {
+       
+       int longitud;
+       longitud=arr.length;
+       left=arr[0];
+        if(left < right){
+      //Encuentra el punto medio del vector.
+      int middle = (left + right) / 2;
+      
+      //Divide la primera y segunda mitad (llamada recursiva).
+      sort( left, middle);
+      sort( middle+1, right);
+
+      //Une las mitades.
+      merge( left, middle, right);
+    }
+    }
+
+    public void merge(int left, int middle, int right) {
+             //Encuentra el tamaño de los sub-vectores para unirlos.
+  int n1 = middle - left + 1;
+  int n2 = right - middle;
+
+  //Vectores temporales.
+  int leftArray[] = new int [n1];
+  int rightArray[] = new int [n2];
+
+  //Copia los datos a los arrays temporales.
+  for (int i=0; i < n1; i++) {
+    leftArray[i] = arr[left+i];
+  }
+  for (int j=0; j < n2; j++) {
+    rightArray[j] = arr[middle + j + 1];
+  }
+  // Une los vectorestemporales. 
+
+  //Índices inicial del primer y segundo sub-vector.
+  int i = 0, j = 0;
+
+  //Índice inicial del sub-vector arr[].
+  int k = left;
+
+  //Ordenamiento.
+  while (i < n1 && j < n2) {
+    if (leftArray[i] <= rightArray[j]) {
+      arr[k] = leftArray[i];
+      i++;
+    } else {
+        arr[k] = rightArray[j];
+        j++;
+    }
+    k++;
+  }//Fin del while.
+
+  // Si quedan elementos por ordenar 
+  //Copiar los elementos restantes de leftArray[].
+  while (i < n1) {
+    arr[k] = leftArray[i];
+    i++;
+    k++;
+  }
+  //Copiar los elementos restantes de rightArray[].
+  while (j < n2) {
+    arr[k] = rightArray[j];
+    j++;
+    k++;
+  }
+    }
+
+    
+    
+*/
     public void MetodoInsercion(){
         
         int longitud, pos, x;

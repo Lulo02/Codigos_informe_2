@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package codigos_informe_2;
 
-/**
- *
- * @author Lulo
- */
+import java.util.ArrayList;
+import javax.swing.table.TableRowSorter;
+
+
 public class punto4 extends javax.swing.JDialog {
 
-    /**
-     * Creates new form punto4
-     */
+        ArrayList<Persona> lista=new ArrayList<Persona>();
+        
+
     public punto4(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -28,25 +24,140 @@ public class punto4 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        BtnRegistrar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtEdad = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaPersona = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnRegistrar.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        BtnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/bton_agregar.png"))); // NOI18N
+        BtnRegistrar.setText("Registrar");
+        BtnRegistrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnRegistrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/bton_agregar_pres.png"))); // NOI18N
+        BtnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegistrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 143, 130, 50));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jLabel2.setText("Nombre");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jLabel3.setText("Edad");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jLabel4.setText("Cedula");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+
+        txtNombre.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, -1));
+
+        txtEdad.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        txtEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEdadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 120, -1));
+
+        txtCedula.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 120, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 210, 170));
+
+        TablaPersona.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        TablaPersona.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre", "Edad", "Cedula"
+            }
+        ));
+        TablaPersona.setRowHeight(30);
+        jScrollPane1.setViewportView(TablaPersona);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 380, 160));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/fondo.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void BtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistrarActionPerformed
+       
+        Persona persona= new Persona(txtNombre.getText(),txtEdad.getText(), txtCedula.getText());
+        lista.add(persona);
+        mostrar();
+        
+        txtNombre.setText("");
+        txtEdad.setText("");
+        txtCedula.setText("");
+    }//GEN-LAST:event_BtnRegistrarActionPerformed
+
+    private void txtEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEdadActionPerformed
+    
+
+    
+    public void mostrar(){
+        
+    
+        String Matriz[][]=new String [lista.size()][3];
+        for (int i = 0; i < lista.size(); i++) {
+            
+            Matriz[i][0]=lista.get(i).getNombre();
+            Matriz[i][1]=lista.get(i).getEdad();
+            Matriz[i][2]=lista.get(i).getCedula();
+            
+        }
+         TablaPersona.setModel(new javax.swing.table.DefaultTableModel(
+            Matriz,
+            new String [] {
+                "Nombre", "Edad", "Cedula"
+            }
+        ));
+        TablaPersona.setRowHeight(30);
+        jScrollPane1.setViewportView(TablaPersona);
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -87,5 +198,16 @@ public class punto4 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnRegistrar;
+    private javax.swing.JTable TablaPersona;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
