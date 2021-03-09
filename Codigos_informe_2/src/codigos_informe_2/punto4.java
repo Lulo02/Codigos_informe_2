@@ -8,7 +8,24 @@ import javax.swing.table.TableRowSorter;
 public class punto4 extends javax.swing.JDialog {
 
         ArrayList<Persona> lista=new ArrayList<Persona>();
-        
+        String Matriz[][]=new String [lista.size()][3];
+        public void ordenar(){
+     
+        for (int i = 0; i < lista.size(); i++) {
+            
+            Matriz[i][0]=lista.get(i).getNombre();
+            Matriz[i][1]=lista.get(i).getEdad();
+            Matriz[i][2]=lista.get(i).getCedula();
+            
+        }
+         TablaPersona.setModel(new javax.swing.table.DefaultTableModel(
+            Matriz,
+            new String [] {
+                "Nombre", "Edad", "Cedula"
+            }
+        ));
+    
+}
 
     public punto4(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -34,6 +51,7 @@ public class punto4 extends javax.swing.JDialog {
         txtCedula = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaPersona = new javax.swing.JTable();
+        Ordenar_edad = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -107,6 +125,14 @@ public class punto4 extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 380, 180));
 
+        Ordenar_edad.setText("ordenar edad burbuja");
+        Ordenar_edad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ordenar_edadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Ordenar_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 120, 40));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/fondo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
@@ -133,26 +159,29 @@ public class punto4 extends javax.swing.JDialog {
     private void txtEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEdadActionPerformed
-    
 
-    
-    public void mostrar(){
+    private void Ordenar_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ordenar_edadActionPerformed
         
-    
-        String Matriz[][]=new String [lista.size()][3];
-        for (int i = 0; i < lista.size(); i++) {
+        ordenar();
+        
+         for (int i = 0; i < lista.size(); i++) {
             
             Matriz[i][0]=lista.get(i).getNombre();
             Matriz[i][1]=lista.get(i).getEdad();
             Matriz[i][2]=lista.get(i).getCedula();
             
         }
-         TablaPersona.setModel(new javax.swing.table.DefaultTableModel(
-            Matriz,
-            new String [] {
-                "Nombre", "Edad", "Cedula"
-            }
-        ));
+        
+        TablaPersona.setRowHeight(30);
+        jScrollPane1.setViewportView(TablaPersona);
+    }//GEN-LAST:event_Ordenar_edadActionPerformed
+    
+
+    
+    public void mostrar(){
+        
+        ordenar();
+       
         TablaPersona.setRowHeight(30);
         jScrollPane1.setViewportView(TablaPersona);
     }
@@ -199,6 +228,7 @@ public class punto4 extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegistrar;
+    private javax.swing.JButton Ordenar_edad;
     private javax.swing.JTable TablaPersona;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
