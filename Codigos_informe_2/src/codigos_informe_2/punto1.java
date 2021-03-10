@@ -5,16 +5,20 @@ import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 
 public class punto1 extends javax.swing.JDialog {
+long TInicio, TFin, tiempo; 
 
+        
 protected int tamaño;
  protected int a;
  
  protected int [] arreglo;
  protected double varianza;
     protected double desviacion_e;
+    
     public punto1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -33,6 +37,8 @@ protected int tamaño;
         DESVIACION = new javax.swing.JButton();
         tomar_tamaño = new javax.swing.JButton();
         mostrar_respuesta = new javax.swing.JLabel();
+        tiempoo = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         mostrar_arreglo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -67,7 +73,7 @@ protected int tamaño;
                 VARIANZAActionPerformed(evt);
             }
         });
-        jPanel2.add(VARIANZA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 140, 90));
+        jPanel2.add(VARIANZA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 140, 90));
 
         DESVIACION.setFont(new java.awt.Font("Segoe Print", 0, 16)); // NOI18N
         DESVIACION.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/botones_p1.png"))); // NOI18N
@@ -79,7 +85,7 @@ protected int tamaño;
                 DESVIACIONActionPerformed(evt);
             }
         });
-        jPanel2.add(DESVIACION, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 140, 90));
+        jPanel2.add(DESVIACION, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 140, 90));
 
         tomar_tamaño.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         tomar_tamaño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/botones_p1.png"))); // NOI18N
@@ -96,6 +102,13 @@ protected int tamaño;
         mostrar_respuesta.setFont(new java.awt.Font("Yu Gothic Light", 0, 24)); // NOI18N
         mostrar_respuesta.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jPanel2.add(mostrar_respuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 370, 60));
+
+        tiempoo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jPanel2.add(tiempoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 110, 40));
+
+        x.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        x.setText("Tiempo:                     milisegundos");
+        jPanel2.add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 350, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 0, 30)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -124,8 +137,11 @@ protected int tamaño;
     }// </editor-fold>//GEN-END:initComponents
 
     private void MEDIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEDIAActionPerformed
+         TInicio = System.currentTimeMillis(); 
+        
         double suma=0;
         double media;
+       
             for(int i=0;i<a;i++){
             
                 suma=suma+arreglo[i];
@@ -134,11 +150,15 @@ protected int tamaño;
                  media=suma/a;
                  mostrar_respuesta.setText(Double.toString(media));
                  
-                 
+                  TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
     }//GEN-LAST:event_MEDIAActionPerformed
 
     private void VARIANZAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VARIANZAActionPerformed
-         double suma=0;
+        
+        double suma=0;
          double media;
         for(int i=0;i<a;i++){
             
@@ -156,10 +176,16 @@ protected int tamaño;
         double resultado;
             resultado=varianza/(a-1);           
              mostrar_respuesta.setText(Double.toString(resultado));
+             
+             TFin = System.currentTimeMillis();
+              tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
     }//GEN-LAST:event_VARIANZAActionPerformed
 
     private void DESVIACIONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DESVIACIONActionPerformed
-       double suma=0;
+       
+        double suma=0;
        double media;
               for(int i=0;i<a;i++){
             
@@ -177,6 +203,12 @@ protected int tamaño;
             varianza=varianza/(a-1);  
             desviacion_e= Math.sqrt(varianza);
             mostrar_respuesta.setText(Double.toString(desviacion_e));
+            
+            
+            TFin = System.currentTimeMillis();
+             tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
     }//GEN-LAST:event_DESVIACIONActionPerformed
 
     private void tomar_tamañoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tomar_tamañoActionPerformed
@@ -250,6 +282,8 @@ protected int tamaño;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel mostrar_arreglo;
     private javax.swing.JLabel mostrar_respuesta;
+    private javax.swing.JLabel tiempoo;
     private javax.swing.JButton tomar_tamaño;
+    private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,7 +12,7 @@ package codigos_informe_2;
 public class punto2 extends javax.swing.JDialog {
 
     protected String cadena;
-    
+    long TInicio, TFin, tiempo; 
     
     public punto2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -35,6 +35,8 @@ public class punto2 extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         caracter_repetido = new javax.swing.JLabel();
+        tiempoo = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         mostrarr = new javax.swing.JTextPane();
@@ -77,28 +79,35 @@ public class punto2 extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Segoe Print", 0, 21)); // NOI18N
         jLabel5.setText("Veces repetidas:");
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(246, 247, 251), null, null));
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 220, 40));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 220, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel2.setText("Caracter más repetido:");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(246, 247, 251), null, null));
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 220, 40));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 220, 40));
 
         caracter_repetido.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        jPanel2.add(caracter_repetido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 60, 40));
+        jPanel2.add(caracter_repetido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 60, 40));
+
+        tiempoo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jPanel2.add(tiempoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 110, 40));
+
+        x.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        x.setText("Tiempo:                     milisegundos");
+        jPanel2.add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 350, 40));
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 21)); // NOI18N
         jLabel4.setText("La nueva cadena es:");
         jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(246, 247, 251), null, null));
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 220, 40));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 220, 40));
 
         mostrarr.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(mostrarr);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 420, 320, 100));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 320, 100));
 
         veces.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        jPanel2.add(veces, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 60, 40));
+        jPanel2.add(veces, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 60, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/fondo_p2.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
@@ -110,6 +119,8 @@ public class punto2 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+TInicio = System.currentTimeMillis(); 
+
         aceptar.addActionListener((e) -> {
             char caracter=0;
             cadena=Ingresar_texto.getText();
@@ -137,7 +148,13 @@ public class punto2 extends javax.swing.JDialog {
             nueva = nueva.replace('a',caracter).replace('e',caracter).replace('i',caracter).replace('o',caracter).replace('u',caracter);
 
             mostrarr.setText(nueva);
+            TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
         });
+        
+        
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void Ingresar_textoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingresar_textoActionPerformed
@@ -198,6 +215,8 @@ public class punto2 extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane mostrarr;
+    private javax.swing.JLabel tiempoo;
     private javax.swing.JLabel veces;
+    private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

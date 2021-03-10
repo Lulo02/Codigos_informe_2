@@ -9,7 +9,7 @@ public class punto3 extends javax.swing.JDialog {
      protected int tamaño;
      protected int a;
      protected double [] arreglo2;
-   
+   long TInicio, TFin, tiempo; 
      public punto3(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -40,6 +40,8 @@ public class punto3 extends javax.swing.JDialog {
         Insercion_des = new javax.swing.JButton();
         seleccion_des = new javax.swing.JButton();
         Burbuja_des = new javax.swing.JButton();
+        tiempoo = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         arreglo = new javax.swing.JLabel();
@@ -147,7 +149,7 @@ public class punto3 extends javax.swing.JDialog {
                 set_tamañoActionPerformed(evt);
             }
         });
-        jPanel4.add(set_tamaño, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 360, 40));
+        jPanel4.add(set_tamaño, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 360, 40));
 
         Insercion_asc.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         Insercion_asc.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,7 +162,7 @@ public class punto3 extends javax.swing.JDialog {
                 Insercion_ascActionPerformed(evt);
             }
         });
-        jPanel4.add(Insercion_asc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 170, 60));
+        jPanel4.add(Insercion_asc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 170, 60));
 
         MergeSort.setFont(new java.awt.Font("Segoe Print", 0, 16)); // NOI18N
         MergeSort.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,7 +175,7 @@ public class punto3 extends javax.swing.JDialog {
                 MergeSortActionPerformed(evt);
             }
         });
-        jPanel4.add(MergeSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 170, 60));
+        jPanel4.add(MergeSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 170, 60));
 
         Seleccion_asc.setFont(new java.awt.Font("Segoe Print", 0, 16)); // NOI18N
         Seleccion_asc.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,7 +188,7 @@ public class punto3 extends javax.swing.JDialog {
                 Seleccion_ascActionPerformed(evt);
             }
         });
-        jPanel4.add(Seleccion_asc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 170, 60));
+        jPanel4.add(Seleccion_asc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 170, 60));
 
         Burbuja_asc.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         Burbuja_asc.setForeground(new java.awt.Color(255, 255, 255));
@@ -199,7 +201,7 @@ public class punto3 extends javax.swing.JDialog {
                 Burbuja_ascActionPerformed(evt);
             }
         });
-        jPanel4.add(Burbuja_asc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 170, 60));
+        jPanel4.add(Burbuja_asc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 170, 60));
 
         Insercion_des.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         Insercion_des.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,7 +214,7 @@ public class punto3 extends javax.swing.JDialog {
                 Insercion_desActionPerformed(evt);
             }
         });
-        jPanel4.add(Insercion_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 170, 60));
+        jPanel4.add(Insercion_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 170, 60));
 
         seleccion_des.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         seleccion_des.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,7 +227,7 @@ public class punto3 extends javax.swing.JDialog {
                 seleccion_desActionPerformed(evt);
             }
         });
-        jPanel4.add(seleccion_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 170, 60));
+        jPanel4.add(seleccion_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 170, 60));
 
         Burbuja_des.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         Burbuja_des.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,13 +240,20 @@ public class punto3 extends javax.swing.JDialog {
                 Burbuja_desActionPerformed(evt);
             }
         });
-        jPanel4.add(Burbuja_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 170, 60));
+        jPanel4.add(Burbuja_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 170, 60));
+
+        tiempoo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jPanel4.add(tiempoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 110, 40));
+
+        x.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        x.setText("Tiempo:                     milisegundos");
+        jPanel4.add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 350, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe Print", 0, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Arreglo ordenado:");
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(229, 207, 229), null, null));
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 230, 50));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 230, 50));
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -258,7 +267,7 @@ public class punto3 extends javax.swing.JDialog {
 
         ordenado.setFont(new java.awt.Font("Yu Gothic Light", 0, 21)); // NOI18N
         ordenado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel4.add(ordenado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 370, 50));
+        jPanel4.add(ordenado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 370, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_interfaz/fondo_p4.png"))); // NOI18N
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 400, 570));
@@ -286,7 +295,8 @@ public class punto3 extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void Burbuja_ascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Burbuja_ascActionPerformed
-       int longitud;
+     TInicio = System.currentTimeMillis(); 
+        int longitud;
         longitud=arreglo2.length;
         double tem;
         int inverso=longitud;
@@ -311,11 +321,15 @@ public class punto3 extends javax.swing.JDialog {
             }
          
           ordenado.setText(Arrays.toString(numeros));
-     
+      TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
     }//GEN-LAST:event_Burbuja_ascActionPerformed
 
     private void Insercion_ascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insercion_ascActionPerformed
-         int longitud, pos;
+        TInicio = System.currentTimeMillis(); 
+        int longitud, pos;
         double aux;
         longitud=arreglo2.length;
        
@@ -331,6 +345,10 @@ public class punto3 extends javax.swing.JDialog {
             longitud=arreglo2.length;
         }
         ordenado.setText(Arrays.toString(arreglo2));
+         TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
     }//GEN-LAST:event_Insercion_ascActionPerformed
 
     private void MergeSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MergeSortActionPerformed
@@ -356,6 +374,7 @@ public class punto3 extends javax.swing.JDialog {
     }//GEN-LAST:event_set_tamañoActionPerformed
 
     private void Seleccion_ascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Seleccion_ascActionPerformed
+        TInicio = System.currentTimeMillis(); 
         int longitud;
         longitud=arreglo2.length;
        
@@ -381,10 +400,14 @@ public class punto3 extends javax.swing.JDialog {
             }
             ordenado.setText(Arrays.toString(arreglo2));
         }
-        
+         TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
     }//GEN-LAST:event_Seleccion_ascActionPerformed
 
     private void Burbuja_desActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Burbuja_desActionPerformed
+            TInicio = System.currentTimeMillis(); 
         int longitud;
         longitud=arreglo2.length;
         double tem;
@@ -401,9 +424,14 @@ public class punto3 extends javax.swing.JDialog {
      
          
           ordenado.setText(Arrays.toString(arreglo2));
+           TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
     }//GEN-LAST:event_Burbuja_desActionPerformed
 
     private void seleccion_desActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccion_desActionPerformed
+        TInicio = System.currentTimeMillis(); 
         int longitud;
         longitud=arreglo2.length;
         int inverso=longitud;
@@ -434,10 +462,15 @@ public class punto3 extends javax.swing.JDialog {
                 numeros[i]= arreglo2[inverso-1];
                 inverso--;
             ordenado.setText(Arrays.toString(numeros));
+             TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
         }
     }//GEN-LAST:event_seleccion_desActionPerformed
 
     private void Insercion_desActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insercion_desActionPerformed
+        TInicio = System.currentTimeMillis(); 
         int longitud, pos;
         double aux;
         longitud=arreglo2.length;
@@ -464,6 +497,10 @@ public class punto3 extends javax.swing.JDialog {
             }
         
         ordenado.setText(Arrays.toString(numeros));
+         TFin = System.currentTimeMillis();
+    tiempo = TFin - TInicio;
+    tiempo=tiempo;
+   tiempoo.setText( Long.toString(tiempo) );
     }//GEN-LAST:event_Insercion_desActionPerformed
 
     /**
@@ -508,6 +545,8 @@ public class punto3 extends javax.swing.JDialog {
         });
     }
 
+   
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Burbuja_asc;
     private javax.swing.JButton Burbuja_des;
@@ -534,5 +573,7 @@ public class punto3 extends javax.swing.JDialog {
     private javax.swing.JLabel ordenado;
     private javax.swing.JButton seleccion_des;
     private javax.swing.JButton set_tamaño;
+    private javax.swing.JLabel tiempoo;
+    private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

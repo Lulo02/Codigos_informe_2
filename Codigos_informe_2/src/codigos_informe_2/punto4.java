@@ -8,9 +8,9 @@ import javax.swing.table.TableRowSorter;
 public class punto4 extends javax.swing.JDialog {
 
         ArrayList<Persona> lista=new ArrayList<Persona>();
-        String Matriz[][]=new String [lista.size()][3];
+        
         public void ordenar(){
-     
+     String Matriz[][]=new String [lista.size()][3];
         for (int i = 0; i < lista.size(); i++) {
             
             Matriz[i][0]=lista.get(i).getNombre();
@@ -146,7 +146,7 @@ public class punto4 extends javax.swing.JDialog {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void BtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistrarActionPerformed
-       
+       String Matriz[][]=new String [lista.size()][3];
         Persona persona= new Persona(txtNombre.getText(),txtEdad.getText(), txtCedula.getText());
         lista.add(persona);
         mostrar();
@@ -163,7 +163,7 @@ public class punto4 extends javax.swing.JDialog {
     private void Ordenar_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ordenar_edadActionPerformed
         
         ordenar();
-        
+        String Matriz[][]=new String [lista.size()][3];
          for (int i = 0; i < lista.size(); i++) {
             
             Matriz[i][0]=lista.get(i).getNombre();

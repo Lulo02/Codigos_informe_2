@@ -36,6 +36,5 @@ public class Persona {
         this.cedula = cedula;
     }
     
-    
-    
+       
 }
